@@ -37,7 +37,7 @@ async function create(movement) {
 
     window.alert("Movimiento guardado con éxito");
 
-   return resp.json();
+    return resp.json();
 }
 
 async function remove(movement) {
