@@ -21,6 +21,8 @@ async function update(movement) {
         body: JSON.stringify(movement),
     });
 
+    window.alert("Movimiento guardado con éxito");
+
     return resp.json();
 }
 
@@ -32,6 +34,8 @@ async function create(movement) {
         },
         body: JSON.stringify(movement),
     });
+
+    window.alert("Movimiento guardado con éxito");
 
     return resp.json();
 }
