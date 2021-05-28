@@ -5,6 +5,19 @@ beforeEach(async () => {
     await MovementModel.Movement.sync({ force: true });
 });
 
+test('Comprobar que se tome la fecha enviada en la creación de un movimiento' , async () => {
+    const movementData = {
+	    date: '01/01/2021',
+        amount: 50000.0,
+        type: MovementType.INCOME,
+        category: 'Sueldo',
+    };
+
+    const fecha = new Date(movementData.date).toJSON()
+    const movement = await MovementModel.create(movementData);
+    expect(movement.date.toJSON()).toBe(fecha)
+});	
+
 test('Crear movimiento', async () => {
     const movementData = {
         date: '04/01/2021',

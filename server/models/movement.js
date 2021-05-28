@@ -74,7 +74,7 @@ const createMovement = ({
     category = '',
     description = '',
 } = {}) => {
-   
+    
     return Movement.create({ date, amount, type, category, description });
 };
 
