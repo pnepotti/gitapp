@@ -28,4 +28,19 @@ describe('Ingresos Test', () => {
 
         cy.get('[data-testid=movement]').should('have.length', 5);
     });
+
+    it('Deberia aparecer una alerta que indique que el movimiento se guardo con exito', (done) => {
+        cy.visit('/income');
+
+        cy.get('input[name=date]').type('2021-04-26');
+        cy.get('input[name=category]').type('Bono');
+        cy.get('input[name=amount]').type('100000');
+        cy.contains('Guardar').click();
+
+        cy.on('window:alert', (string) => {
+        expect(string).to.equal('Movimiento guardado con éxito');
+        done();
+        });
+         
+    });
 });
