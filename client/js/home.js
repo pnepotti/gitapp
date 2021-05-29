@@ -28,7 +28,7 @@ function generateExpenseData(movements) {
     let labels = [];
     let data = [];
 
-    movements.forEach(m => {
+    movements.forEach((m) => {
         if (m.type == 'expense') {
             if (labels.includes(m.category)) {
                 data[labels.indexOf(m.category)] += m.amount;
@@ -50,7 +50,7 @@ function generateBalanceData(movements) {
     let totalExpenses = [];
     let totalIncomes = [];
 
-    movements.forEach(m => {
+    movements.forEach((m) => {
         const month = getMonth(m.date).toString();
 
         if (!labels.includes(month)) {

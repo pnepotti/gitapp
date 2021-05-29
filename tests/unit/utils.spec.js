@@ -11,4 +11,3 @@ test('Should convert 100 into "100"', async () => {
 test('Should convert undefined into ""', async () => {
     expect(monefy(undefined)).toBe('');
 });
-

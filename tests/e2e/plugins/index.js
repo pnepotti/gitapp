@@ -15,7 +15,7 @@ module.exports = function (on) {
         },
     });
 
-    return server.start().then(instance => {
+    return server.start().then((instance) => {
         serverInstance = instance;
 
         return {
