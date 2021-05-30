@@ -9,6 +9,29 @@ describe('Home Test', () => {
         cy.title().should('eq', 'Gitapp');
     });
 
+    //Verifica que los titulos de las card utilicen la clase adecuada
+
+    it('El titulo de la card deberia tener la clase card-header-title', () => {
+        cy.visit('/');
+
+        cy.get('p').contains('Gastos mensuales').should('have.class', 'card-header-title');
+        cy.get('p').contains('Últimos movimientos').should('have.class', 'card-header-title');
+        cy.get('p').contains('Balance mensual').should('have.class', 'card-header-title');
+
+    });
+
+    //Verifica que los div que contienen los titulos de las card, utilicen la clase adecuada
+
+    it('El div que contiene el titulo de la card deberia tener la clase card-header', () => {
+        cy.visit('/');
+
+        cy.get('p').contains('Gastos mensuales').parent('div').should('have.class', 'card-header');
+        cy.get('p').contains('Últimos movimientos').parent('div').should('have.class', 'card-header');
+        cy.get('p').contains('Balance mensual').parent('div').should('have.class', 'card-header');
+        
+    });   
+    
+
     it('Deberia mostrar los ultimos 5 movimientos', () => {
         cy.visit('/');
 
