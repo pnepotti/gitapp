@@ -16,12 +16,12 @@ async function update(movement) {
     const resp = await fetch(`${BASE_URL}/movements/${movement.id}`, {
         method: 'PUT',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
         },
         body: JSON.stringify(movement),
     });
 
-    window.alert("Movimiento guardado con éxito");
+    window.alert('Movimiento guardado con éxito');
 
     return resp.json();
 }
@@ -30,19 +30,19 @@ async function create(movement) {
     const resp = await fetch(`${BASE_URL}/movements`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
         },
         body: JSON.stringify(movement),
     });
 
-    window.alert("Movimiento guardado con éxito");
+    window.alert('Movimiento guardado con éxito');
 
     return resp.json();
 }
 
 async function remove(movement) {
     console.log('delete:', movement);
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
         resolve();
     });
 }

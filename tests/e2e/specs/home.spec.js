@@ -46,6 +46,6 @@ describe('Home Test', () => {
             .contains('Ingresos')
             .click()
             .title()
-            .should('eq', 'Gitapp - Ingresos')
+            .should('eq', 'Gitapp - Ingresos');
     });
 });

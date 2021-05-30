@@ -3,12 +3,12 @@ function init(labels, data, ctx) {
         type: 'bar',
         options: {
             responsive: true,
-            maintainAspectRatio: false
+            maintainAspectRatio: false,
         },
         data: {
             labels: labels,
             datasets: data,
-        }
+        },
     });
 }
 

@@ -5,7 +5,7 @@ const express = require('express');
 const paginate = require('express-paginate');
 const bodyParser = require('body-parser');
 
-const detectPort = process.env.HEROKU ? port => port : require('detect-port');
+const detectPort = process.env.HEROKU ? (port) => port : require('detect-port');
 
 const nunjucks = require('./utils/nunjucks.js');
 const env = require('./utils/env.js');
@@ -57,7 +57,7 @@ async function startServer(port = process.env.PORT) {
 
             const originalClose = server.close.bind(server);
             server.close = async () => {
-                return new Promise(resolveClose => {
+                return new Promise((resolveClose) => {
                     originalClose(resolveClose);
                 });
             };

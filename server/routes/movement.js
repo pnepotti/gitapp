@@ -45,7 +45,7 @@ router.post('/', function (req, res) {
         .catch((_) => {
             console.log(_);
             res.status(500).send('Error al crear movimiento');
-        })
+        });
 });
 
 /**
