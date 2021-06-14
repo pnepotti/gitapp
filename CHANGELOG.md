@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2021-06-14
+
+### Added
+
+-   Alerta que indica que un movimiento se guardó con éxito
+-   Campo Description al modelo
+
+### Fixed
+
+-   Arregla headers de las cards de los gráficos
+-   Arregla problema que hace que todos los movimientos se creen con la
+fecha del día y no con la fecha ingresada
+
 ## [1.0.1] - 2021-05-03
 
 ### Added
@@ -30,6 +43,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   Home UI with charts and last movements
 -   Incomes UI with last incomes
 
-[unreleased]: https://github.com/frlp-utn-ingsoft/gitapp/compare/v1.0.1...HEAD
-[1.0.1]: https://github.com/frlp-utn-ingsoft/gitapp/releases/tag/v1.0.1
-[1.0.0]: https://github.com/frlp-utn-ingsoft/gitapp/releases/tag/v1.0.0
+[unreleased]: https://github.com/pnepotti/gitapp/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/pnepotti/gitapp/releases/tag/v1.1.0
+[1.0.1]: https://github.com/pnepotti/gitapp/releases/tag/v1.0.1
+[1.0.0]: https://github.com/pnepotti/gitapp/releases/tag/v1.0.0
