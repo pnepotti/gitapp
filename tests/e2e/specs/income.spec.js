@@ -42,7 +42,15 @@ describe('Ingresos Test', () => {
         cy.on('window:alert', (string) => {
         expect(string).to.equal('Movimiento guardado con éxito');
         done();
-        });
-         
+        });         
+    });
+
+    it('Deberian tener validación todos los campos del formulario', () => {
+        cy.visit('/income');
+
+        cy.get(':nth-child(2) > .control > .input').should('have.attr', 'required');
+        cy.get(':nth-child(3) > .control > .input').should('have.attr', 'required');
+        cy.get(':nth-child(4) > .control > .input').should('have.attr', 'required');
+        cy.get(':nth-child(5) > .control > .input').should('have.attr', 'required');
     });
 });
