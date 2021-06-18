@@ -20,3 +20,31 @@ test('Deberia renderizar correctamente un movimiento del tipo income', () => {
     );
     expect(getByText($movement, '+ $')).toHaveClass('has-text-success');
 });
+
+test('Deberia aparecer un signo + adelante de los ingresos ', () => {
+    const $movement = render('movement', {
+        movement: {
+            type: 'income',
+            date: '01/01/2021',
+            amount: 1000.0,
+            category: 'Supermercado',
+        },
+    });
+
+
+    expect(getByText($movement, '+ $'));
+});
+
+test('Deberia aparecer un signo - adelante de los egresos', () => {
+    const $movement = render('movement', {
+        movement: {
+            type: 'expense',
+            date: '01/01/2021',
+            amount: 1000.0,
+            category: 'Supermercado',
+        },
+    });
+
+
+    expect(getByText($movement, '- $'));
+});
