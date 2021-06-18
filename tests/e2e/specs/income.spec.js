@@ -20,6 +20,7 @@ describe('Ingresos Test', () => {
     it('Deberia poder crear un nuevo ingreso', () => {
         cy.visit('/income');
 
+        cy.get('input[name=description]').type('Descripcion de prueba');
         cy.get('input[name=date]').type('2021-04-26');
         cy.get('input[name=category]').type('Bono');
         cy.get('input[name=amount]').type('100000');
@@ -32,6 +33,7 @@ describe('Ingresos Test', () => {
     it('Deberia aparecer una alerta que indique que el movimiento se guardo con exito', (done) => {
         cy.visit('/income');
 
+        cy.get('input[name=description]').type('Descripcion de prueba');
         cy.get('input[name=date]').type('2021-04-26');
         cy.get('input[name=category]').type('Bono');
         cy.get('input[name=amount]').type('100000');
@@ -40,7 +42,15 @@ describe('Ingresos Test', () => {
         cy.on('window:alert', (string) => {
         expect(string).to.equal('Movimiento guardado con éxito');
         done();
-        });
-         
+        });         
+    });
+
+    it('Deberian tener validación todos los campos del formulario', () => {
+        cy.visit('/income');
+
+        cy.get(':nth-child(2) > .control > .input').should('have.attr', 'required');
+        cy.get(':nth-child(3) > .control > .input').should('have.attr', 'required');
+        cy.get(':nth-child(4) > .control > .input').should('have.attr', 'required');
+        cy.get(':nth-child(5) > .control > .input').should('have.attr', 'required');
     });
 });

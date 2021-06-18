@@ -69,6 +69,11 @@ window.onRemove = async function () {
  * Guarda un movimiento
  **/
 window.onSave = async function (e) {
+    const form = document.querySelector('form');
+    //Verifica que el formulario sea válido. Si no lo es, no se hace nada
+    if (!form.checkValidity()) {
+        return;
+    }
     e.stopPropagation();
     e.preventDefault();
     const movement = getMovementData();
