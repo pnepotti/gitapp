@@ -292,3 +292,50 @@ test('Editar movimiento inexistente por api', async () => {
     expect(req.status).toBe(404);
 });
 
+test('Eliminar movimiento por api', async () => {
+    const movementData = {
+        date: '06/06/2021',
+        amount: 50000.0,
+        type: MovementType.INCOME,
+        category: 'Sueldo',
+    };
+
+const movement = await MovementModel.create(movementData);
+
+let movementsBeforeDelete = await MovementModel.getAll();
+
+expect(movementsBeforeDelete.rows.length).toBe(1);
+
+const movementDeleted = await MovementModel.delete(movement.id);
+
+expect(movementDeleted).not.toBeNull();
+
+let movementsAfterDelete = await MovementModel.getAll();
+
+expect(movementsAfterDelete.rows.length).toBe(0);
+
+});
+
+test('Eliminar movimiento inexistente por api', async () => {
+    const movementData = {
+        date: '06/06/2021',
+        amount: 50000.0,
+        type: MovementType.INCOME,
+        category: 'Sueldo',
+    };
+
+await MovementModel.create(movementData);
+
+let movementsBeforeDelete = await MovementModel.getAll();
+
+expect(movementsBeforeDelete.rows.length).toBe(1);
+
+const movementDeleted = await MovementModel.delete(55);
+
+expect(movementDeleted).toBeNull();
+
+let movementsAfterDelete = await MovementModel.getAll();
+
+expect(movementsAfterDelete.rows.length).toBe(movementsBeforeDelete.rows.length);
+
+});
