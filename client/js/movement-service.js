@@ -41,10 +41,10 @@ async function create(movement) {
 }
 
 async function remove(movement) {
-    console.log('delete:', movement);
-    return new Promise((resolve) => {
-        resolve();
+    const resp = await fetch(`${BASE_URL}/movements/${movement.id}`, {
+     method: 'DELETE',
     });
+    return resp.json();
 }
 
 export default {
@@ -54,3 +54,4 @@ export default {
     getLast,
     getIncomes,
 };
+``
