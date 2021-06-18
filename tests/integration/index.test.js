@@ -291,3 +291,4 @@ test('Editar movimiento inexistente por api', async () => {
 
     expect(req.status).toBe(404);
 });
+
