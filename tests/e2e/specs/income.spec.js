@@ -53,4 +53,11 @@ describe('Ingresos Test', () => {
         cy.get(':nth-child(4) > .control > .input').should('have.attr', 'required');
         cy.get(':nth-child(5) > .control > .input').should('have.attr', 'required');
     });
+
+    it('El monto no deberia permitir el ingreso de números negativos', () => {
+        cy.visit('/income');
+
+        cy.get('input[name=amount]').should('have.attr', 'min', '0');
+    });
+
 });
